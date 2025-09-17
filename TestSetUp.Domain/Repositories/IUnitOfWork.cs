@@ -5,7 +5,7 @@ namespace TestSetup.Domain.Repositories
     public interface IUnitOfWork : IDisposable
     {
         IUserRepository Users { get; }
-        IRefreshTokenRepository? RefreshTokens { get; }
+        IRefreshTokenRepository RefreshTokens { get; }
 
         // Transaction methods
         Task<IDbContextTransaction> BeginTransactionAsync();

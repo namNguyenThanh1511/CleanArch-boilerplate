@@ -13,9 +13,10 @@ namespace TestSetup.Api.Controllers
     {
         private readonly IAuthService _authService;
         private readonly ITokenService _tokenService;
-        public AuthenticationController(IAuthService authService)
+        public AuthenticationController(IAuthService authService, ITokenService tokenService)
         {
             _authService = authService;
+            _tokenService = tokenService;
         }
 
         [HttpPost("register")]

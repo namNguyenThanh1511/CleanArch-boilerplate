@@ -27,7 +27,7 @@ namespace TestSetup.Application.Services.TokenService
         /// </summary>
         Task<bool> ValidateRefreshTokenAsync(string token);
 
-        public Task<TokenResponse> RefreshTokenAsync(string refreshToken);
+        Task<TokenResponse> RefreshTokenAsync(string refreshToken);
 
         /// <summary>
         /// Revoke refresh token

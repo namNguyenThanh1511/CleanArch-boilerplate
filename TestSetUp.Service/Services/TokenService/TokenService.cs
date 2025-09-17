@@ -82,7 +82,7 @@ namespace TestSetup.Application.Services.TokenService
                 CreatedAt = DateTime.UtcNow
             };
 
-            await _unitOfWork.RefreshTokens.AddAsync(refreshToken);
+            _unitOfWork.RefreshTokens.Add(refreshToken);
             await _unitOfWork.SaveAsync();
 
             return refreshToken.Token;

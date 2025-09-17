@@ -26,7 +26,6 @@ namespace TestSetup.Application.Services.AuthService.DTOs
         [DataType(DataType.Date)]
         public DateOnly DateOfBirth { get; set; }
 
-        [Required(ErrorMessage = "CMND/CCCD không được để trống")]
         [RegularExpression(@"^\d{12}$", ErrorMessage = "CMND/CCCD phải có đúng 12 chữ số")]
         public string Identifier { get; set; } = string.Empty;
 

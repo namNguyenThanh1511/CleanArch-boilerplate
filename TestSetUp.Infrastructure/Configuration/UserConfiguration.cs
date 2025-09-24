@@ -31,14 +31,12 @@ namespace TestSetup.Infrastructure.Configuration
             builder.Property(u => u.Password)
                 .IsRequired()
                 .HasMaxLength(255);
-            builder.Property(u => u.DateOfBirth)
-                .IsRequired();
+            builder.Property(u => u.DateOfBirth);
             builder.Property(u => u.Avatar)
                 .HasMaxLength(255);
             builder.Property(u => u.Identifier)
-                .IsRequired()
                 .HasMaxLength(50);
-            builder.HasIndex(u => u.Identifier).IsUnique();
+            //builder.HasIndex(u => u.Identifier).IsUnique();
             builder.Property(u => u.UserRole)
                 .HasConversion<string>()
                 .IsRequired();

@@ -11,8 +11,8 @@ namespace TestSetup.Domain.Entities
         public string? PhoneNumber { get; set; }
         public string Username { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
-        public DateOnly DateOfBirth { get; set; }
-        public string Identifier { get; set; } = string.Empty;
+        public DateOnly? DateOfBirth { get; set; }
+        public string? Identifier { get; set; } = null;
 
         public string? Avatar { get; set; }
 
@@ -49,15 +49,6 @@ namespace TestSetup.Domain.Entities
             UpdatedAt = DateTimeOffset.UtcNow;
         }
 
-        public void ChangeRole(Role newRole)
-        {
-            if (UserRole == newRole)
-                throw new BusinessRuleViolationException($"User already has role {newRole}");
-
-            UserRole = newRole;
-            UpdatedAt = DateTimeOffset.UtcNow;
-        }
-
         public void CheckCanLogin()
         {
             if (!IsActive)
@@ -66,8 +57,8 @@ namespace TestSetup.Domain.Entities
 
         public bool IsAdult()
         {
-            var age = DateTime.Today.Year - DateOfBirth.Year;
-            if (DateOfBirth.DayOfYear > DateTime.Today.DayOfYear)
+            var age = DateTime.Today.Year - DateOfBirth.Value.Year;
+            if (DateOfBirth.Value.DayOfYear > DateTime.Today.DayOfYear)
                 age--;
 
             return age >= 18;

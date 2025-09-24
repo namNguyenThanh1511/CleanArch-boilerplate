@@ -116,11 +116,11 @@ namespace TestSetup.Application.Services.AuthService
             }
 
             // Check identifier
-            var existingUserByIdentifier = await _unitOfWork.Users.GetUserByIdentifierAsync(dto.Identifier);
-            if (existingUserByIdentifier != null)
-            {
-                throw new UserAlreadyExistsException("identifier", dto.Identifier);
-            }
+            //var existingUserByIdentifier = await _unitOfWork.Users.GetUserByIdentifierAsync(dto.Identifier);
+            //if (existingUserByIdentifier != null)
+            //{
+            //    throw new UserAlreadyExistsException("identifier", dto.Identifier);
+            //}
 
             // Check phone number (if provided)
             if (!string.IsNullOrEmpty(dto.PhoneNumber))

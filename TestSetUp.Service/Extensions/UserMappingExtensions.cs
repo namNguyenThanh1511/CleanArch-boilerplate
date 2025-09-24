@@ -15,16 +15,16 @@ namespace TestSetup.Application.Extensions
                 Password = userCreationDto.Password,
                 Email = userCreationDto.Email,
                 PhoneNumber = userCreationDto.PhoneNumber,
-                Identifier = userCreationDto.Identifier,
+                Identifier = userCreationDto.Identifier ?? null,
                 Avatar = "https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=6&m=1223671392&s=170667a&w=0&h=zP3l7WJinOFaGb2i1F4g8IS2ylw0FlIaa6x3tP9sebU=",
                 IsActive = true,
                 FullName = userCreationDto.FullName,
-                DateOfBirth = userCreationDto.DateOfBirth,
+                DateOfBirth = userCreationDto.DateOfBirth ?? null,
             };
         }
         public static UserProfileResponse ToProfileResponse(this User user)
         {
-            var age = CalculateAge(user.DateOfBirth);
+            var age = CalculateAge(user.DateOfBirth.Value);
 
             return new UserProfileResponse
             {
@@ -33,7 +33,7 @@ namespace TestSetup.Application.Extensions
                 Email = user.Email,
                 PhoneNumber = user.PhoneNumber,
                 Username = user.Username,
-                DateOfBirth = user.DateOfBirth,
+                DateOfBirth = user.DateOfBirth.Value,
                 Identifier = user.Identifier,
                 Avatar = user.Avatar,
                 Role = user.UserRole.ToString(),

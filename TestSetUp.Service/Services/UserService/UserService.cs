@@ -96,15 +96,15 @@ namespace TestSetup.Application.Services.UserService
             var age = today.Year - request.DateOfBirth.Year;
             if (request.DateOfBirth > today.AddYears(-age)) age--;
 
-            if (age < 13)
-            {
-                throw new BusinessRuleViolationException("User must be at least 13 years old");
-            }
+            //if (age < 13)
+            //{
+            //    throw new BusinessRuleViolationException("User must be at least 13 years old");
+            //}
 
-            if (age > 120)
-            {
-                throw new BusinessRuleViolationException("Invalid date of birth");
-            }
+            //if (age > 120)
+            //{
+            //    throw new BusinessRuleViolationException("Invalid date of birth");
+            //}
             // Update user properties
             existingUser.FullName = request.FullName.Trim();
             existingUser.Email = request.Email.Trim().ToLowerInvariant();

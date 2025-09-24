@@ -14,6 +14,7 @@ namespace TestSetup.Application.Services.AuthService.DTOs
         [StringLength(255, ErrorMessage = "Email không được vượt quá 255 ký tự")]
         public string Email { get; set; } = string.Empty;
 
+        [Required(ErrorMessage = "Số điện thoại không được để trống")]
         [VietnamPhoneRegex]
         public string? PhoneNumber { get; set; }
 
@@ -22,9 +23,8 @@ namespace TestSetup.Application.Services.AuthService.DTOs
             ErrorMessage = "Tên đăng nhập phải có ít nhất 5 ký tự, chỉ chứa chữ cái và số, bắt đầu bằng chữ cái")]
         public string Username { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Ngày sinh không được để trống")]
         [DataType(DataType.Date)]
-        public DateOnly DateOfBirth { get; set; }
+        public DateOnly? DateOfBirth { get; set; }
 
         [RegularExpression(@"^\d{12}$", ErrorMessage = "CMND/CCCD phải có đúng 12 chữ số")]
         public string Identifier { get; set; } = string.Empty;

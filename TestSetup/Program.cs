@@ -31,6 +31,7 @@ builder.Services.AddApplicationServices(builder.Configuration);
 builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 builder.Services.ConfigureGlobalException();
 builder.Services.ConfigureJWT(builder.Configuration);
+builder.Services.ConfigureCors();
 
 var app = builder.Build();
 
@@ -47,7 +48,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
-
+app.UseCors("AllowHeartSpace");
 
 app.MapControllers();
 
